@@ -197,31 +197,4 @@ open_system('clinic_throughput');
 
 ---
 
-## ⚙️ Configuration & Threshold Tuning (`config.m`)
 
-All thresholds are centralized in [config.m](file:///c:/Users/mdalt/OneDrive/Desktop/SIH_26/config.m) for easy calibration:
-
-```matlab
-cfg = config();
-
-% Adjust Quality Gate thresholds:
-cfg.quality.blur.threshold = 14.0;              % Minimum sharpness score (higher = stricter)
-cfg.quality.illumination.minMean = 0.18;        % Minimum brightness
-cfg.quality.fov.minCircularity = 0.65;          % Circularity threshold
-
-% Adjust Preprocessing parameters:
-cfg.preprocess.clahe.clipLimit = 0.020;         % Contrast amplification limit (0.01 - 0.03)
-cfg.preprocess.clahe.distribution = 'rayleigh'; % Rayleigh / Uniform / Exponential
-
-% Adjust Lesion sensitivity:
-cfg.segment.lesion.darkSensitivity = 0.035;     % Hemorrhage sensitivity
-cfg.segment.lesion.brightSensitivity = 0.050;   % Hard exudate sensitivity
-
-% Adjust Clinic Simulation parameters:
-cfg.sim.patientsExpected = 150;                 % Expected daily cohort
-cfg.sim.arrivalRatePerHour = 18;                % Patient arrival rate
-```
-
----
-
-ghput**, **68% doctor workload reduction**, **$32.50 cost savings/scan**.
