@@ -224,37 +224,4 @@ cfg.sim.arrivalRatePerHour = 18;                % Patient arrival rate
 
 ---
 
-## 📋 What To Do Next (Roadmap for Hackathon & Production)
-
-Here are the recommended next steps to expand and showcase this project:
-
-### 1. 🗂 Real Dataset Benchmark & Fine-Tuning
-- Download sample images from public benchmark datasets:
-  - **Kaggle EyePACS / APTOS 2019 Blindness Detection** (Grades 0–4)
-  - **MESSIDOR & MESSIDOR-2** (DR severity + Macular Edema annotations)
-  - **DRIVE / STARE / CHASE_DB1** (Pixel-level retinal blood vessel ground truths)
-- Calibrate `cfg.quality` and `cfg.classify` thresholds against your target fundus camera hardware.
-
-### 2. 🧠 Deep Learning Transfer Learning (Optional Enhancement)
-- In `+classify/createDRNetwork.m`, you can plug in a pretrained convolutional backbone (e.g. `resnet50`, `densenet201`, or `efficientnetb0`) trained on EyePACS/APTOS using MATLAB's **Deep Learning Toolbox**:
-  ```matlab
-  % Example fine-tuning flow:
-  net = imagePretrainedNetwork('resnet50');
-  % Replace classification head for 5 DR grades
-  ```
-
-### 3. 🖥 Interactive MATLAB App Designer UI
-- Build a live graphical dashboard using MATLAB App Designer (`appdesigner`):
-  - Add drag-and-drop image upload.
-  - Display live side-by-side tabs: Raw vs Enhanced vs Vessels vs Lesions vs Grad-CAM.
-  - Add a one-click **"Export Doctor PDF/HTML Report"** button.
-  - Live simulation slider to adjust clinic arrival rate and display instantaneous throughput gains.
-
-### 4. 🏥 EHR / PACS / DICOM Integration
-- Add DICOM I/O support using `dicomread` and `dicomwrite` to process native hospital fundus camera outputs directly.
-- Export results as JSON / HL7 / FHIR compliant diagnostic records.
-
-### 5. 🎯 Hackathon Presentation Pitch Deck Highlights
-- **Problem**: 537M+ diabetics globally; DR is the leading cause of preventable blindness in working-age adults; severe shortage of ophthalmologists in rural areas.
-- **Solution**: 5-stage autonomous screening with automated Quality Gate retake prevention, green-CLAHE enhancement, ETDRS lesion segmentation, and explainable Grad-CAM reports.
-- **Impact**: **4x higher patient throughput**, **68% doctor workload reduction**, **$32.50 cost savings/scan**.
+ghput**, **68% doctor workload reduction**, **$32.50 cost savings/scan**.
